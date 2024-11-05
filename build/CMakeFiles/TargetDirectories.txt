@@ -1,0 +1,3 @@
+/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build/CMakeFiles/NumericalMethods.dir
+/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build/CMakeFiles/edit_cache.dir
+/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build/CMakeFiles/rebuild_cache.dir

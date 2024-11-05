@@ -1,0 +1,5 @@
+# ninja log v6
+1	1169	1730802421189637031	CMakeFiles/NumericalMethods.dir/src/NMLW_classes.cpp.o	823b0cc5ffead6bc
+1	1117	1730396395414682192	CMakeFiles/NumericalMethods.dir/src/NMLW.cpp.o	da0ee9c7ad7b2970
+1169	1265	1730802422356310391	NumericalMethods	d31bace01b84d7da
+3	948	1730802245821921917	CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o	46895b958298f5e8

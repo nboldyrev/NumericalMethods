@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/Matrix.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/Matrix.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o"
+},
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/NMLW_classes.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/NMLW_classes.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/NMLW_classes.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/NMLW_classes.cpp.o"
+}
+]
