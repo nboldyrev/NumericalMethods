@@ -1,6 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
+#include<iostream>
 #include <vector>
 #include <cmath>
 #include <stdexcept>
@@ -23,12 +23,12 @@ class Matrix {
         const MyType getPresision() const;
         void setPresision(const MyType e);
 
-        const MyType cubicNorm();
-        const MyType octNorm();
-        const MyType sphereNorm();
+        const MyType norm(const size_t normType);
+
 
         MyType& operator()(const int col_ind, const int row_ind);
         const MyType& operator()(const int col_ind, const int row_ind) const;
+        MyType& operator()(const int row_ind);
         
         Matrix getCol(const int index);
         const Matrix getCol(const int index) const ;
@@ -44,9 +44,12 @@ class Matrix {
         Matrix operator-(const Matrix &rhs);
 
         Matrix addToRow(const size_t rowLhs,const size_t rowRhs, const MyType scalar);
+        Matrix addToRow(const size_t rowLhs, const Matrix rowRhs, const MyType scalar);
         Matrix append(const Matrix col);
         Matrix swapCols(const size_t col1,const size_t col2);
         Matrix swapRows(const size_t row1, const size_t row2);
+        Matrix perturb(const MyType perturbationScale);
+        Matrix popCol(const size_t col);
         
         Matrix transpose();
 

@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
-file(GLOB_RECURSE SRC_FILES src/NMLW_classes.cpp src/Matrix.cpp)
+file(GLOB_RECURSE SRC_FILES src/*.cpp)
 
 add_executable(NumericalMethods ${SRC_FILES})
 

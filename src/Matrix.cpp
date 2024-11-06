@@ -47,9 +47,28 @@ void Matrix::setPresision(const MyType e)
     eps = e;
 }
 
-const MyType Matrix::cubicNorm()
+const MyType Matrix::norm(const size_t normType)
 {
- return 0;
+    MyType maxNorm = 0;
+    if(normType == 0){
+       MyType sum = 0;
+
+       if(cols == 1){
+           for(size_t i = 0; i < rows; ++i) {
+               if(std::abs((*this)(i))>maxNorm)maxNorm = std::abs((*this)(i));
+           }
+       }
+       else {
+           for (size_t i = 0; i < rows; ++i) {
+               auto col = (*this).getRow(i);
+               for(size_t j = 0; i < cols; ++i) {
+                   sum += std::abs(col(i));
+               }
+               if(sum>maxNorm)maxNorm=sum;
+           }
+       }
+    }
+    return maxNorm;
 }
 
 MyType& Matrix::operator()(const int col_ind, const int row_ind) {
@@ -57,6 +76,11 @@ MyType& Matrix::operator()(const int col_ind, const int row_ind) {
 }
 const MyType& Matrix::operator()(const int col_ind, const int row_ind) const {
     return data[col_ind][row_ind];
+}
+
+MyType &Matrix::operator()(const int row_ind)
+{
+   return data[0][row_ind];
 }
 
 Matrix Matrix::getCol(const int index) {
@@ -92,8 +116,8 @@ std::pair<size_t, size_t> Matrix::getMaxPosition(const size_t var, const int par
     switch (par)
     {
     case 1:
-        for(size_t i = var; i >= 0; --i) {
-            for(size_t j = var; j >= 0; --j) {
+        for(size_t i = var; i < cols; --i) {
+            for(size_t j = var; j < cols; --j) {
                 if(std::abs((*this)(i,j))>std::abs((*this)(max_col,max_row))) {
                     max_col = i;
                     max_row = j;
@@ -130,11 +154,19 @@ Matrix Matrix::operator*(const MyType scalar) {
     }
     return result;
 }
+
 const Matrix Matrix::operator*(const MyType scalar) const {
-    return *(this)*scalar;
+    Matrix result(*(this));
+    for(int i = 0; i < cols; ++i) {
+        for(int j = 0; j < rows; ++j) {
+            result(i,j)*=scalar;
+            if(std::abs(result(i,j))<=eps)result(i,j)=0;
+        }
+    }
+    return result;
 }
 Matrix Matrix::operator*(const Matrix& rhs) {
-    Matrix result(rows, rhs.getCols(),eps);
+    Matrix result(rhs.getCols(),rows,eps);
     if (cols != rhs.getRows()) {
         throw std::invalid_argument("Number of columns in the first matrix must equal the number of rows in the second matrix.");
     }
@@ -174,6 +206,15 @@ Matrix Matrix::addToRow(const size_t rowLhs,const size_t rowRhs, const MyType sc
     return (*this);
 }
 
+Matrix Matrix::addToRow(const size_t rowLhs, const Matrix rowRhs, const MyType scalar)
+{
+    for(size_t i = 0; i < cols; ++i) {
+            (*this)(i,rowLhs)+=scalar*rowRhs(0,i);
+            if(std::abs((*this)(i,rowLhs))<=eps)(*this)(i,rowLhs)=0;
+    }
+    return (*this);
+}
+
 Matrix Matrix::transpose() {
     Matrix result(rows,cols);
     
@@ -185,6 +226,13 @@ Matrix Matrix::transpose() {
     return (*this)=result;
 }
 
+Matrix Matrix::popCol(const size_t col)
+{
+    auto Col = (*this).getCol(col);
+    data.erase(data.begin()+col);
+    cols-=1;
+    return Col;
+}
 
 Matrix Matrix::toUpperTriangleForm()
 {
@@ -235,6 +283,7 @@ Matrix Matrix::toUpperTriangleForm( std::vector<std::pair<size_t, size_t>>& swap
         swaps.push_back(std::pair(maxCol,maxRow));
         for(size_t j = i+1; j < rows; ++j) {
             auto c = (*this)(i,j)/(*this)(i,i);
+            if(std::abs(c)<=eps)continue;
             (*this)=(*this).addToRow(j,i,-c);
         }
     }

@@ -1,14 +1,44 @@
 [
 {
   "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/GaussSolver.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/GaussSolver.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/GaussSolver.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/GaussSolver.cpp.o"
+},
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/JacobiSolver.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/JacobiSolver.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/JacobiSolver.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/JacobiSolver.cpp.o"
+},
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/LinearSolver.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/LinearSolver.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/LinearSolver.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/LinearSolver.cpp.o"
+},
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
   "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/Matrix.cpp\"",
   "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/Matrix.cpp",
   "output": "CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o"
 },
 {
   "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
-  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/NMLW_classes.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/NMLW_classes.cpp\"",
-  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/NMLW_classes.cpp",
-  "output": "CMakeFiles/NumericalMethods.dir/src/NMLW_classes.cpp.o"
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/QRSolver.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/QRSolver.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/QRSolver.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/QRSolver.cpp.o"
+},
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/SimpleIterSolver.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/SimpleIterSolver.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o"
+},
+{
+  "directory": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/build",
+  "command": "/usr/bin/g++ -DRES_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\\\"\" -DTESTS_DIR=\"\\\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\\\"\" -g -std=gnu++20 -o CMakeFiles/NumericalMethods.dir/src/main.cpp.o -c \"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/main.cpp\"",
+  "file": "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/src/main.cpp",
+  "output": "CMakeFiles/NumericalMethods.dir/src/main.cpp.o"
 }
 ]

@@ -1,16 +1,19 @@
 #ifndef LINEARSOLVER_H
 #define LINEARSOLVER_H
 #include "Matrix.h"
+#include "algorithm"
 class LinearSolver {
     protected:
-        MyType epsilon;
-        MyType presicion;
-        size_t iterrationLimit;
         size_t normType;
-
+        
 
     public:
-        LinearSolver(const MyType _epsilon = 2.20E-16,const MyType _presicion=0, const size_t _iterrationLimit = 14881488, const size_t _normType = 0 );
-
+        LinearSolver();
+        LinearSolver(const size_t _normType);
+        Matrix readProblem(const std::string& filename,MyType epsi=2.20E-16);
+/*         Matrix SimpleIterattions(Matrix problem, Matrix rs, Matrix xStart);
+        Matrix Jacobi(Matrix& problem, Matrix& rs, Matrix& xStart);
+        Matrix Zeidel(Matrix problem);
+        Matrix Relaxation(Matrix provlem); */
 };
-#endif LINEARSOLVER_H
+#endif //LINEARSOLVER_H
