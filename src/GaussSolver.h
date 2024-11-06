@@ -9,7 +9,7 @@ class GaussSolver:public LinearSolver {
         Matrix gaussForwardElim(Matrix& problem,std::vector<std::pair<size_t,size_t>>&swaps);
         Matrix gaussBackwardElim(Matrix& augProblem);
         Matrix gaussModifiedElim(Matrix& problem, Matrix& rs,std::vector<std::pair<size_t,size_t>>&swaps);
-        Matrix solve(Matrix& A);
+        Matrix solve(Matrix& problem);
         Matrix solveModified(Matrix&A);
 };
 #endif //GAUSSSOLVER_H

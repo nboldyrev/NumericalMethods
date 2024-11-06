@@ -50,9 +50,8 @@ void Matrix::setPresision(const MyType e)
 const MyType Matrix::norm(const size_t normType)
 {
     MyType maxNorm = 0;
-    if(normType == 0){
-       MyType sum = 0;
-
+    MyType sum = 0;
+    if(normType == 0){//* Кубическая
        if(cols == 1){
            for(size_t i = 0; i < rows; ++i) {
                if(std::abs((*this)(i))>maxNorm)maxNorm = std::abs((*this)(i));
@@ -60,6 +59,7 @@ const MyType Matrix::norm(const size_t normType)
        }
        else {
            for (size_t i = 0; i < rows; ++i) {
+               sum = 0;
                auto col = (*this).getRow(i);
                for(size_t j = 0; i < cols; ++i) {
                    sum += std::abs(col(i));
@@ -67,6 +67,35 @@ const MyType Matrix::norm(const size_t normType)
                if(sum>maxNorm)maxNorm=sum;
            }
        }
+    }
+    if(normType == 1) {//* Октаэдрическая
+        if(cols ==1){
+                for(size_t i = 0; i < rows; ++i) {
+                    maxNorm+=std::abs((*this)(i));
+                    if(maxNorm<=eps)maxNorm=0;
+                }
+        }
+        else {
+            for(size_t i = 0; i < cols; ++i) {
+                sum = 0;
+                for(size_t j = 0; j < rows; ++j) {
+                    sum+=abs((*this)(i,j));
+                    if(sum<=eps)sum = 0;
+                }
+                if(sum>=maxNorm)maxNorm=sum;
+            }
+        }
+    }
+    if(normType == 2) {//* Сферичесская
+        if(cols == 1) {
+            for(int i = 0; i < rows; ++i) {
+                maxNorm+=std::abs(std::pow((*this)(i),2));
+            }
+            maxNorm = std::sqrt(maxNorm);
+        }
+        else {//TODO Нужны собственные числа
+
+        }
     }
     return maxNorm;
 }
@@ -196,6 +225,11 @@ Matrix Matrix::operator-(const Matrix& rhs) {
     return result+(rhs*(-1.0));
 }
 
+Matrix Matrix::operator-()
+{
+    Matrix result((*this));
+    return result*(-1);
+}
 
 Matrix Matrix::addToRow(const size_t rowLhs,const size_t rowRhs, const MyType scalar) {
     ;
@@ -322,7 +356,7 @@ Matrix Matrix::inverce()
     return (*this);
 }     
 
-Matrix Matrix::append(const Matrix col) {
+Matrix Matrix::append(const Matrix& col) {
     data.insert(data.end(),col.data.begin(),col.data.end());
     (*this).cols+=col.cols;
     return (*this);
@@ -338,6 +372,16 @@ Matrix Matrix::swapRows(const size_t row1, const size_t row2)
 {
     for(int i = 0; i < cols; ++i) {
         std::swap(data[i][row1],data[i][row2]);
+    }
+    return (*this);
+}
+
+Matrix Matrix::perturb(const MyType perturbationScale)
+{
+    for(size_t i = 0; i < cols; ++i) {
+        for(size_t j = 0; j < rows; ++j) {
+            (*this)(i,j)+=std::pow(-1,i+j)*perturbationScale*(*this)(i,j);
+        }
     }
     return (*this);
 }

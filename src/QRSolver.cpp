@@ -67,7 +67,8 @@ QRSolver::QRSolver() : LinearSolver()
 {
 }
 
-QRSolver::QRSolver(const size_t _normType, const MyType _presicion): LinearSolver(_normType)
+QRSolver::QRSolver(const size_t _normType):
+ LinearSolver(_normType)
 {
 }
 

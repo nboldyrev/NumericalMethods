@@ -42,10 +42,11 @@ class Matrix {
         Matrix operator*(const Matrix &rhs);
         Matrix operator+(const Matrix& rhs);
         Matrix operator-(const Matrix &rhs);
+        Matrix operator-();
 
         Matrix addToRow(const size_t rowLhs,const size_t rowRhs, const MyType scalar);
         Matrix addToRow(const size_t rowLhs, const Matrix rowRhs, const MyType scalar);
-        Matrix append(const Matrix col);
+        Matrix append(const Matrix& col);
         Matrix swapCols(const size_t col1,const size_t col2);
         Matrix swapRows(const size_t row1, const size_t row2);
         Matrix perturb(const MyType perturbationScale);

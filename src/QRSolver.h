@@ -7,7 +7,7 @@ class QRSolver :public LinearSolver {
         Matrix R;
     public:
         QRSolver();
-        QRSolver(const size_t _normType, const MyType _presicion);
+        QRSolver(const size_t _normType);
         QRSolver( Matrix& A);
         std::pair<Matrix,Matrix> calcQR(Matrix& A);
         std::pair<Matrix,Matrix> getQR();
