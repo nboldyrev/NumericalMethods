@@ -50,10 +50,9 @@ int main() {
     std::cout<<solQ.solve(problem0);
     GaussSolver solG;
     problem0 = solG.readProblem(Lab1::fileIn5);
-    std::cout<<solG.solve(problem0); 
+    std::cout<<solG.solve(problem0);  
     Matrix a({{1,2,3}});
-    std::cout<<a<<"\n"<<a.perturb(0.1);
-
+    std::cout<<a<<"\n"<<a.perturb(0.1); 
 
     std::cout<<std::endl;
     return 0;

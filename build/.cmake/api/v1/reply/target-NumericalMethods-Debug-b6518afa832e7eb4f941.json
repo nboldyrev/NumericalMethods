@@ -11,7 +11,8 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_compile_definitions"
+			"target_compile_definitions",
+			"include_directories"
 		],
 		"files" : 
 		[
@@ -39,6 +40,12 @@
 				"file" : 0,
 				"line" : 17,
 				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
 			}
 		]
 	},
@@ -60,6 +67,13 @@
 				{
 					"backtrace" : 3,
 					"define" : "TESTS_DIR=\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/include"
 				}
 			],
 			"language" : "CXX",
