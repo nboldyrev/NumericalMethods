@@ -10,3 +10,5 @@
 5	699	1730908353599630424	CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o	709ae96ccdbd554e
 2	934	1730908353596297078	CMakeFiles/NumericalMethods.dir/src/GaussSolver.cpp.o	7a726a36f41c5c65
 2	698	1730908353596297078	CMakeFiles/NumericalMethods.dir/src/JacobiSolver.cpp.o	13dae0a7434d42a9
+1	671	1730908860673139514	CMakeFiles/NumericalMethods.dir/src/main.cpp.o	42b93ce6d150f46b
+671	764	1730908861343140301	NumericalMethods	6e8a165c6a5c3145

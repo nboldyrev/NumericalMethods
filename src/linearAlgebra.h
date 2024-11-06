@@ -12,6 +12,7 @@
 //Итерационные методы
 #include "JacobiSolver.h"
 #include "SimpleIterSolver.h"
-// Добавьте остальные заголовочные файлы по мере необходимости
+#include "SeidelSolver.h"
+#include "RelaxationSolver.h"
 
 #endif // LINEARALGEBRA_H
