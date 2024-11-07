@@ -4,8 +4,8 @@ SimpleIterSolver::SimpleIterSolver():SLESolver(),precision(0.01)
 {
 }
 
-SimpleIterSolver::SimpleIterSolver(const size_t normType, const MyType _presicion)
-:SLESolver(normType),
+SimpleIterSolver::SimpleIterSolver(const size_t normType, const MyType _presicion, const MyType epsilon)
+:SLESolver(normType, epsilon),
 precision(_presicion)
 {
 }

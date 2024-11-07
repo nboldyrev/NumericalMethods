@@ -67,8 +67,8 @@ QRSolver::QRSolver() : SLESolver()
 {
 }
 
-QRSolver::QRSolver(const size_t _normType):
- SLESolver(_normType)
+QRSolver::QRSolver(const size_t _normType, const MyType _epsilon):
+ SLESolver(_normType, _epsilon)
 {
 
 }

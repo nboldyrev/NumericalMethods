@@ -3,10 +3,10 @@
 {
 }
 
-GaussSolver::GaussSolver(const size_t _normType)
-:SLESolver(_normType)
+GaussSolver::GaussSolver(const size_t _normType, const MyType _epsilon)
+:SLESolver(_normType,_epsilon)
 {
-} 
+}
 
 Matrix GaussSolver::gaussForwardElim(Matrix &problem, std::vector<std::pair<size_t, size_t>> &swaps)
 {

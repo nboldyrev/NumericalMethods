@@ -3,7 +3,8 @@
 JacobiSolver::JacobiSolver():SLESolver(),precision(0.01)
 {
 }
-JacobiSolver::JacobiSolver(const size_t normType, const MyType _presicion):SLESolver(normType),
+JacobiSolver::JacobiSolver(const size_t normType, const MyType _presicion,
+const MyType epsilon):SLESolver(normType,epsilon),
 precision(_presicion)
 {
 }

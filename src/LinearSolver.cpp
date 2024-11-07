@@ -3,12 +3,13 @@
 #include <iostream>
 #include <fstream>
 
-LinearSolver::LinearSolver(): normType(0){
+LinearSolver::LinearSolver(): normType(0), epsilon(2.20E-16){
     
 }
 
-LinearSolver::LinearSolver(const size_t _normType):
-normType(_normType)
+LinearSolver::LinearSolver(const size_t _normType, const MyType _epsilon):
+normType(_normType),
+epsilon(_epsilon)
 {
 }
 
