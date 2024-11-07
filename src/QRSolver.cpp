@@ -70,9 +70,11 @@ QRSolver::QRSolver() : LinearSolver()
 QRSolver::QRSolver(const size_t _normType):
  LinearSolver(_normType)
 {
+
 }
 
 QRSolver::QRSolver(Matrix& A):LinearSolver()
 {
+
      (*this).calcQR(A);
 }
