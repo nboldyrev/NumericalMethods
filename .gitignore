@@ -10,13 +10,11 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
-
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+.cmake
+.ninja_deps
+.ninja_log
+build.ninja
+NumericalMethods
 
 # Local History for Visual Studio Code
 .history/
