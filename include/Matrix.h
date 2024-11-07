@@ -4,8 +4,8 @@
 #include <vector>
 #include <cmath>
 #include <stdexcept>
-#include "TypeHolder.h"
-using MyType = float;
+#include "Type.h"
+using MyType = double;
 class Matrix {
     private:
         std::vector<std::vector<MyType>> data;
@@ -14,10 +14,10 @@ class Matrix {
         MyType eps;
     public:
         Matrix();
-        Matrix(const int c,const int r, const MyType e=type<MyType>().getDefaultEps((MyType)0.1));
-        Matrix(const int s,const MyType pr=type<MyType>().getDefaultEps((MyType)0.1));
+        Matrix(const int c,const int r, const MyType e=type<MyType>()(((MyType)0.1)));
+        Matrix(const int s,const MyType pr=type<MyType>()(((MyType)0.1)));
         Matrix(const MyType pr);
-        Matrix(std::initializer_list<std::vector<MyType>> list, const MyType e=type<MyType>().getDefaultEps((MyType)0.1));
+        Matrix(std::initializer_list<std::vector<MyType>> list, const MyType e=type<MyType>()(((MyType)0.1)));
         Matrix(const Matrix& rhs);
         size_t getRows();
         size_t getCols();

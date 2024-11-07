@@ -51,7 +51,7 @@ int main() {
     std::cout<<GaussSolver().fsolve(Lab1::fileIn1);
     std::cout<<QRSolver().fsolve(Lab1::fileIn4);
     std::ifstream file(Lab1::fileIn4);
-    Matrix a;
+    Matrix a(1E-10);
     file>>a;
     std::cout<<a<<"\n\n"<<a.getInverseMatrix()*a;  
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-LinearSolver::LinearSolver(): normType(0), epsilon(type<MyType>().getDefaultEps((MyType)0.1)){
+LinearSolver::LinearSolver(): normType(0), epsilon(type<MyType>()(((MyType)0.1))){
     
 }
 

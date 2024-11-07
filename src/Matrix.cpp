@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-Matrix::Matrix():data(),eps(type<MyType>().getDefaultEps((MyType)0.1)),rows(0),cols(0){}
+Matrix::Matrix():data(),eps(type<MyType>()(((MyType)0.1))),rows(0),cols(0){}
 Matrix::Matrix(const int c,const int r, const MyType e):rows(r),cols(c), eps(e){
     data.resize(cols,std::vector<MyType>(rows,0));
 }

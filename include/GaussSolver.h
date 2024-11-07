@@ -5,7 +5,7 @@ class GaussSolver:public SLESolver {
 
     public:
         GaussSolver();
-        GaussSolver(const size_t _normType, const MyType _epsilon=type<MyType>().getDefaultEps((MyType)0.1));
+        GaussSolver(const size_t _normType, const MyType _epsilon=type<MyType>()(((MyType)0.1)));
         Matrix gaussForwardElim(Matrix& problem,std::vector<std::pair<size_t,size_t>>&swaps);
         Matrix gaussBackwardElim(Matrix& augProblem);
         Matrix gaussModifiedElim(Matrix& problem, Matrix& rs,std::vector<std::pair<size_t,size_t>>&swaps);
