@@ -3,7 +3,9 @@
 #include <iostream>
 #include <fstream>
 
-LinearSolver::LinearSolver(): normType(0){}
+LinearSolver::LinearSolver(): normType(0){
+    
+}
 
 LinearSolver::LinearSolver(const size_t _normType):
 normType(_normType)

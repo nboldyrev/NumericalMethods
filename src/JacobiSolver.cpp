@@ -3,10 +3,12 @@
 JacobiSolver::JacobiSolver():SLESolver(),precision(0.01)
 {
 }
-
-
-
-Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)  {
+JacobiSolver::JacobiSolver(const size_t normType, const MyType _presicion):SLESolver(normType),
+precision(_presicion)
+{
+}
+Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)
+{
 
     Matrix rs=problem.popCol(problem.getCols()-1);
     Matrix C(problem.getCols(),problem.getRows());
@@ -41,4 +43,10 @@ Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)  {
         //TODO tau
     }
     return Matrix();
+}
+
+Matrix JacobiSolver::solve(Matrix &problem)
+{
+    Matrix startX(1,problem.getRows());
+    return (*this).solve(problem, startX);
 }

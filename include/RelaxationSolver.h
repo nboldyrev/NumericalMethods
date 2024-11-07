@@ -1,5 +1,5 @@
-#include "SLESolver.h"
 #ifndef RELAXATIONSOLVER_H
+#include "SLESolver.h"
 class RelaxtationSolver: public SLESolver {
     private:
     public:

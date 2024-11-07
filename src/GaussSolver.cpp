@@ -1,13 +1,12 @@
 #include "GaussSolver.h"
-
-GaussSolver::GaussSolver():SLESolver()
+ GaussSolver::GaussSolver():SLESolver()
 {
 }
 
 GaussSolver::GaussSolver(const size_t _normType)
 :SLESolver(_normType)
 {
-}
+} 
 
 Matrix GaussSolver::gaussForwardElim(Matrix &problem, std::vector<std::pair<size_t, size_t>> &swaps)
 {
@@ -35,7 +34,6 @@ Matrix GaussSolver::solve(Matrix &A)
 {
     std::vector<std::pair<size_t,size_t>> swaps;
     (*this).gaussForwardElim(A,swaps);
-    std::cout<<A<<"\n";
     auto result=(*this).gaussBackwardElim(A);
     const auto N = swaps.size(); 
     for(int i = 0; i < N; ++i) {

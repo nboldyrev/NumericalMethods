@@ -4,6 +4,12 @@ SimpleIterSolver::SimpleIterSolver():SLESolver(),precision(0.01)
 {
 }
 
+SimpleIterSolver::SimpleIterSolver(const size_t normType, const MyType _presicion)
+:SLESolver(normType),
+precision(_presicion)
+{
+}
+
 Matrix SimpleIterSolver::solve(Matrix &problem, Matrix &xStart)
 {
     Matrix rs=problem.popCol(problem.getCols()-1);
@@ -26,4 +32,10 @@ Matrix SimpleIterSolver::solve(Matrix &problem, Matrix &xStart)
         //TODO tau
     }
     return Matrix();
+}
+
+Matrix SimpleIterSolver::solve(Matrix &problem)
+{
+    Matrix startX(1,problem.getRows());
+    return (*this).solve(problem, startX);
 }

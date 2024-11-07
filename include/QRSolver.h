@@ -1,6 +1,6 @@
-#include "SLESolver.h"
 #ifndef QRSOLVER_H
 #define QRSOLVER_H
+#include "SLESolver.h"
 class QRSolver :public SLESolver {
     private:
         Matrix Q;
@@ -12,6 +12,6 @@ class QRSolver :public SLESolver {
         std::pair<Matrix,Matrix> calcQR(Matrix& A);
         std::pair<Matrix,Matrix> getQR();
         std::pair<Matrix,Matrix> getQR(Matrix& A);
-        Matrix solve(Matrix& rs);
+        Matrix solve(Matrix& rs) override;
 };
 #endif //QRSOLVER_H

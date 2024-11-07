@@ -1,6 +1,6 @@
-#include "SLESolver.h"
 #ifndef GAUSSSOLVER_H
 #define GAUSSSOLVER_H
+#include "SLESolver.h"
 class GaussSolver:public SLESolver {
 
     public:
@@ -9,7 +9,7 @@ class GaussSolver:public SLESolver {
         Matrix gaussForwardElim(Matrix& problem,std::vector<std::pair<size_t,size_t>>&swaps);
         Matrix gaussBackwardElim(Matrix& augProblem);
         Matrix gaussModifiedElim(Matrix& problem, Matrix& rs,std::vector<std::pair<size_t,size_t>>&swaps);
-        Matrix solve(Matrix& problem) ;
+        Matrix solve(Matrix& problem) override;
         Matrix solveModified(Matrix&A);
 };
 #endif //GAUSSSOLVER_H

@@ -3,6 +3,10 @@ SLESolver::SLESolver():LinearSolver()
 {
 }
 
+SLESolver::SLESolver(const size_t normType):LinearSolver(normType)
+{
+}
+
 Matrix SLESolver::readLSE(const std::string &filename, MyType epsi)
 {
     std::ifstream file(filename);

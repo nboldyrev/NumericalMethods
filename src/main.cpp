@@ -41,7 +41,11 @@ namespace Lab2 {//* NOTE:: файлы
 
 
 int main() {
-    GaussSolver a;
-    
+    GaussSolver solG;
+    SimpleIterSolver solS(0,0.0001);
+    auto problem0 = solG.readLSE(Lab1::fileIn2);
+    auto problem1 = solS.readLSE(Lab2::fileIn1);
+    std::cout<<solG.solve(problem0)<<"\n\n";
+    std::cout<<solS.solve(problem1)<<"\n\n";
     return 0;
 }
