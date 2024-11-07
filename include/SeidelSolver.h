@@ -1,9 +1,8 @@
-#include "LinearSolver.h"
 #ifndef SEIDELSOLVER_H
-class SeidelSolver : public LinearSolver
+#define SEIDELSOLVER_H
+#include "SLESolver.h"
+class SeidelSolver : public SLESolver
 {
-    private:
     public:
 };
-#define SEIDELSOLVER_H
 #endif //SEIDELSOLVER_H

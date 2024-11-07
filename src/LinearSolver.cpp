@@ -3,26 +3,17 @@
 #include <iostream>
 #include <fstream>
 
-LinearSolver::LinearSolver(): normType(0){}
+LinearSolver::LinearSolver(): normType(0), epsilon(2.20E-16){
+    
+}
 
-LinearSolver::LinearSolver(const size_t _normType):
-normType(_normType)
+LinearSolver::LinearSolver(const size_t _normType, const MyType _epsilon):
+normType(_normType),
+epsilon(_epsilon)
 {
 }
 
-Matrix LinearSolver::readProblem(const std::string& filename,MyType epsi)
-{
-    std::ifstream file(filename);
-    Matrix problem;
-    file>>problem;
-    problem.setPresision(epsi);
-    Matrix rs(1,problem.getRows());
-    for(int i = 0; i < problem.getRows(); ++i){
-        file>>rs(i);
-    }
-    problem.append(rs);
-    return problem;
-}
+
 /* Matrix LinearSolver::SimpleIterattions(Matrix problem, Matrix rs, Matrix xStart)
 {
     Matrix E(problem.getRows());

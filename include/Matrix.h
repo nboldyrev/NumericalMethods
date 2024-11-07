@@ -10,12 +10,14 @@ class Matrix {
         std::vector<std::vector<MyType>> data;
         size_t rows;
         size_t cols;
-        MyType eps; //TODO учесть в функциях точность
+        MyType eps;
     public:
         Matrix();
         Matrix(const int c,const int r, const MyType e=2.20E-16);
-        Matrix(const int s);
+        Matrix(const int s,const MyType pr=2.20E-16);
+        Matrix(const MyType pr);
         Matrix(std::initializer_list<std::vector<MyType>> list, const MyType e=2.20E-16);
+        Matrix(const Matrix& rhs);
         size_t getRows();
         size_t getCols();
         const size_t getRows() const;
@@ -59,6 +61,7 @@ class Matrix {
         Matrix toLowerTriangleForm();
 
         Matrix inverce();
+        Matrix getInverseMatrix();
 
         friend std::ostream& operator << (std::ostream &os, const Matrix& matrix);
         friend std::istream& operator >>(std::istream &os,  Matrix& matrix);// TODO:: написать чтение из файла

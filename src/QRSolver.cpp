@@ -2,6 +2,7 @@
 #include "GaussSolver.h"
 std::pair<Matrix, Matrix> QRSolver::calcQR(Matrix &A)
 {
+    A.setPresision(epsilon);
 	MyType s = 0, c = 0, l = 0;
     if(A.getCols()-A.getRows()!=0)A.popCol(A.getCols()-1);
     const int hight = A.getRows();
@@ -47,6 +48,7 @@ std::pair<Matrix, Matrix> QRSolver::getQR(Matrix &A)
 
 Matrix QRSolver::solve(Matrix &rhs)
 {
+    rhs.setPresision(epsilon);
     if(rhs.getCols()==1){
         auto newRs=(R.transpose())*rhs;
         R.transpose();
@@ -63,17 +65,22 @@ Matrix QRSolver::solve(Matrix &rhs)
 
 }
 
-QRSolver::QRSolver() : LinearSolver()
+Matrix QRSolver::solve(Matrix &&problem)
+{
+    return (*this).solve(problem);
+}
+
+QRSolver::QRSolver() : SLESolver()
 {
 }
 
-QRSolver::QRSolver(const size_t _normType):
- LinearSolver(_normType)
+QRSolver::QRSolver(const size_t _normType, const MyType _epsilon):
+ SLESolver(_normType, _epsilon)
 {
 
 }
 
-QRSolver::QRSolver(Matrix& A):LinearSolver()
+QRSolver::QRSolver(Matrix& A):SLESolver()
 {
 
      (*this).calcQR(A);

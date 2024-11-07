@@ -89,6 +89,14 @@ build CMakeFiles/NumericalMethods.dir/src/QRSolver.cpp.o: CXX_COMPILER__Numerica
   OBJECT_DIR = CMakeFiles/NumericalMethods.dir
   OBJECT_FILE_DIR = CMakeFiles/NumericalMethods.dir/src
 
+build CMakeFiles/NumericalMethods.dir/src/SLESolver.cpp.o: CXX_COMPILER__NumericalMethods_unscanned_Debug /home/nbold/Documents/BMSTU/5$ sem/Numerical$ Methods/NumericalMethodsCpp/src/SLESolver.cpp || cmake_object_order_depends_target_NumericalMethods
+  DEFINES = -DRES_DIR="\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\"" -DTESTS_DIR="\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\""
+  DEP_FILE = CMakeFiles/NumericalMethods.dir/src/SLESolver.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/include"
+  OBJECT_DIR = CMakeFiles/NumericalMethods.dir
+  OBJECT_FILE_DIR = CMakeFiles/NumericalMethods.dir/src
+
 build CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o: CXX_COMPILER__NumericalMethods_unscanned_Debug /home/nbold/Documents/BMSTU/5$ sem/Numerical$ Methods/NumericalMethodsCpp/src/SimpleIterSolver.cpp || cmake_object_order_depends_target_NumericalMethods
   DEFINES = -DRES_DIR="\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/results/\"" -DTESTS_DIR="\"/home/nbold/Documents/BMSTU/5 sem/Numerical Methods/NumericalMethodsCpp/tests/\""
   DEP_FILE = CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o.d
@@ -113,7 +121,7 @@ build CMakeFiles/NumericalMethods.dir/src/main.cpp.o: CXX_COMPILER__NumericalMet
 #############################################
 # Link the executable NumericalMethods
 
-build NumericalMethods: CXX_EXECUTABLE_LINKER__NumericalMethods_Debug CMakeFiles/NumericalMethods.dir/src/GaussSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/JacobiSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/LinearSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o CMakeFiles/NumericalMethods.dir/src/QRSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/main.cpp.o
+build NumericalMethods: CXX_EXECUTABLE_LINKER__NumericalMethods_Debug CMakeFiles/NumericalMethods.dir/src/GaussSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/JacobiSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/LinearSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/Matrix.cpp.o CMakeFiles/NumericalMethods.dir/src/QRSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/SLESolver.cpp.o CMakeFiles/NumericalMethods.dir/src/SimpleIterSolver.cpp.o CMakeFiles/NumericalMethods.dir/src/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/NumericalMethods.dir
   POST_BUILD = :
