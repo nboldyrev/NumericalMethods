@@ -2,6 +2,7 @@
 #include <iostream>
 
 
+
 namespace Lab1 {//* NOTE::  файлы 
     const std::string inDir = "../tests/L1/";
     const std::string outDir = "../results/L1/";
@@ -41,7 +42,7 @@ namespace Lab2 {//* NOTE:: файлы
 
 
 int main() {
-    GaussSolver solG(0,2.20E-20);
+     GaussSolver solG;
     SimpleIterSolver solS(2,0.1);
     auto problem0 = solG.readLSE(Lab1::fileIn5);
     auto problem1 = solS.readLSE(Lab2::fileIn1);
@@ -50,8 +51,9 @@ int main() {
     std::cout<<GaussSolver().fsolve(Lab1::fileIn1);
     std::cout<<QRSolver().fsolve(Lab1::fileIn4);
     std::ifstream file(Lab1::fileIn4);
-    Matrix a(1E-10);
+    Matrix a;
     file>>a;
-    std::cout<<a<<"\n\n"<<a.getInverseMatrix()*a;
+    std::cout<<a<<"\n\n"<<a.getInverseMatrix()*a;  
+
     return 0;
 }

@@ -7,7 +7,7 @@ class QRSolver :public SLESolver {
         Matrix R;
     public:
         QRSolver();
-        QRSolver(const size_t _normType, const MyType _epsolon = 2.20E-16);
+        QRSolver(const size_t _normType, const MyType _epsolon = type<MyType>().getDefaultEps((MyType)0.1));
         QRSolver( Matrix& A);
         std::pair<Matrix,Matrix> calcQR(Matrix& A);
         std::pair<Matrix,Matrix> getQR();
