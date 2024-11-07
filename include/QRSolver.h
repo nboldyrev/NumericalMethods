@@ -13,5 +13,6 @@ class QRSolver :public SLESolver {
         std::pair<Matrix,Matrix> getQR();
         std::pair<Matrix,Matrix> getQR(Matrix& A);
         Matrix solve(Matrix& rs) override;
+        Matrix solve(Matrix&& problem) override;
 };
 #endif //QRSOLVER_H

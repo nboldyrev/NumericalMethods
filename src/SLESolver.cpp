@@ -22,3 +22,9 @@ Matrix SLESolver::readLSE(const std::string &filename)
     }
     return problem;
 }
+
+Matrix SLESolver::fsolve(const std::string filename)
+{
+
+    return (*this).solve(((*this).readLSE(filename)));
+}

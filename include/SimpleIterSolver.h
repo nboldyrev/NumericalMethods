@@ -10,5 +10,7 @@ class SimpleIterSolver: public SLESolver{
         const MyType epsilon=2.20E-16);
         Matrix solve(Matrix& problem, Matrix& xStart);
         Matrix solve(Matrix& problem) override;
+        Matrix solve(Matrix&& problem) override;
+
 };
 #endif //SIMPLEITERSOLVER_H

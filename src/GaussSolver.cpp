@@ -10,15 +10,17 @@ GaussSolver::GaussSolver(const size_t _normType, const MyType _epsilon)
 
 Matrix GaussSolver::gaussForwardElim(Matrix &problem, std::vector<std::pair<size_t, size_t>> &swaps)
 {
+    problem.setPresision(epsilon);
     problem.toUpperTriangleForm(swaps);
     return problem;
 }
 
 Matrix GaussSolver::gaussBackwardElim(Matrix &augProblem)
 {
+    augProblem.setPresision(epsilon);
     const auto hight = augProblem.getRows();
     const auto width = augProblem.getCols();
-    Matrix result(1,hight);
+    Matrix result(1,(int)hight);
     for(int i = width-1; i>=0; --i) {
         result(i) = augProblem(width-1,i);
         for(int j = width-2; j>i;--j) {
@@ -32,6 +34,7 @@ Matrix GaussSolver::gaussBackwardElim(Matrix &augProblem)
 
 Matrix GaussSolver::solve(Matrix &A) 
 {
+    A.setPresision(epsilon);
     std::vector<std::pair<size_t,size_t>> swaps;
     (*this).gaussForwardElim(A,swaps);
     auto result=(*this).gaussBackwardElim(A);
@@ -41,4 +44,9 @@ Matrix GaussSolver::solve(Matrix &A)
     } 
     std::cout<<result<<"\n\n";
    return Matrix();
+}
+
+Matrix GaussSolver::solve(Matrix &&problem)
+{
+    return (*this).solve(problem);
 }

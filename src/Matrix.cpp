@@ -7,11 +7,16 @@ Matrix::Matrix(const int c,const int r, const MyType e):rows(r),cols(c), eps(e){
     data.resize(cols,std::vector<MyType>(rows,0));
 }
 
-Matrix::Matrix(const int s): rows(s), cols(s), eps(2.20E-16){
+Matrix::Matrix(const int s,const MyType pr): rows(s), cols(s), eps(pr){
     data.resize(cols,std::vector<MyType>(rows,0));
     for(int i = 0; i < s; ++i) {
         data[i][i] = 1;
     }
+}
+Matrix::Matrix(const MyType pr)
+:Matrix()
+{
+(*this).setPresision(pr);
 }
 Matrix::Matrix(std::initializer_list<std::vector<MyType>> list, const MyType e) : data(list), eps(e)
 {
@@ -24,6 +29,11 @@ Matrix::Matrix(std::initializer_list<std::vector<MyType>> list, const MyType e) 
     }
 }
 
+Matrix::Matrix(const Matrix& rhs)
+:data(rhs.data), eps(rhs.eps),cols(rhs.cols), rows(rhs.rows)
+{
+
+}
 size_t Matrix::getRows(){
     return this->rows;
 }
@@ -250,8 +260,7 @@ Matrix Matrix::addToRow(const size_t rowLhs, const Matrix rowRhs, const MyType s
 }
 
 Matrix Matrix::transpose() {
-    Matrix result(rows,cols);
-    
+    Matrix result(rows,cols,(*this).getPresision());
     for(int i = 0; i < cols; ++i){
         for(int j = 0; j < rows; ++j) {
             (result)(j,i) = data[i][j];
@@ -327,7 +336,7 @@ Matrix Matrix::toUpperTriangleForm( std::vector<std::pair<size_t, size_t>>& swap
 Matrix Matrix::inverce()
 {
     std::vector<std::pair<size_t,size_t>>swaps;
-    Matrix identityMatrix(rows);
+    Matrix identityMatrix((int)rows);
     (*this).append(identityMatrix);
     (*this).toUpperTriangleForm(swaps);
     for(size_t i = rows-1; i > 0; --i) {
@@ -354,7 +363,13 @@ Matrix Matrix::inverce()
     data.erase(data.begin(),data.end()-rows);
     cols = rows; 
     return (*this);
-}     
+}
+
+Matrix Matrix::getInverseMatrix()
+{
+    auto tmp(*this);
+    return tmp.inverce();
+}
 
 Matrix Matrix::append(const Matrix& col) {
     data.insert(data.end(),col.data.begin(),col.data.end());
@@ -401,7 +416,9 @@ std::istream &operator>>(std::istream &os, Matrix &matrix)
 {
    int N;
    os >> N;
-   matrix=Matrix(N);
+   matrix.data.resize(N,std::vector<MyType>(N,0));
+   matrix.rows=N;
+   matrix.cols = N;
    for(int i = 0; i < N; ++i) {
     for(int j = 0; j < N; ++j) {
         os>>matrix(i,j);

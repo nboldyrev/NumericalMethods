@@ -11,14 +11,16 @@ precision(_presicion)
 Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)
 {
 
+    problem.setPresision(epsilon);
     Matrix rs=problem.popCol(problem.getCols()-1);
-    Matrix C(problem.getCols(),problem.getRows());
+    Matrix C(problem.getCols(),(int)problem.getRows());
+    C.setPresision(epsilon);
 /*     Matrix L(problem.getCols(),problem.getRows());
     Matrix U(problem.getCols(),problem.getRows());
     Matrix D(problem.getCols(),problem.getRows()); */
-    Matrix y(1,problem.getRows());
+    Matrix y(1,(int)problem.getRows());
 
-
+    y.setPresision(epsilon);
     for(int i = 0; i < C.getCols(); ++i) {
         for(int j = 0; j < C.getRows(); ++j) {
 /*             if(i==j)D(i,j)=problem(i,j);
@@ -48,6 +50,12 @@ Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)
 
 Matrix JacobiSolver::solve(Matrix &problem)
 {
-    Matrix startX(1,problem.getRows());
+    problem.setPresision(epsilon);
+    Matrix startX(1,(int)problem.getRows());
     return (*this).solve(problem, startX);
+}
+
+Matrix JacobiSolver::solve(Matrix &&problem)
+{
+    return (*this).solve(problem);
 }

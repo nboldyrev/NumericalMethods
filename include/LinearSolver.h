@@ -6,7 +6,7 @@
 class LinearSolver {
     protected:
         size_t normType;
-        size_t epsilon;
+        MyType epsilon;
     public:
         LinearSolver();
         LinearSolver(const size_t _normType, const MyType epsilon = 2.20E-16);

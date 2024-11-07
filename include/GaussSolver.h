@@ -10,6 +10,7 @@ class GaussSolver:public SLESolver {
         Matrix gaussBackwardElim(Matrix& augProblem);
         Matrix gaussModifiedElim(Matrix& problem, Matrix& rs,std::vector<std::pair<size_t,size_t>>&swaps);
         Matrix solve(Matrix& problem) override;
+        Matrix solve(Matrix&& problem) override;
         Matrix solveModified(Matrix&A);
 };
 #endif //GAUSSSOLVER_H
