@@ -4,6 +4,8 @@ JacobiSolver::JacobiSolver():LinearSolver(),precision(0.01)
 {
 }
 
+
+
 Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)
 {
 
