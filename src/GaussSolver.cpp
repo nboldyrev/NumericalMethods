@@ -1,11 +1,11 @@
 #include "GaussSolver.h"
 
-GaussSolver::GaussSolver():LinearSolver()
+GaussSolver::GaussSolver():SLESolver()
 {
 }
 
 GaussSolver::GaussSolver(const size_t _normType)
-:LinearSolver(_normType)
+:SLESolver(_normType)
 {
 }
 
@@ -31,7 +31,7 @@ Matrix GaussSolver::gaussBackwardElim(Matrix &augProblem)
 }
 
 
-Matrix GaussSolver::solve(Matrix &A)
+Matrix GaussSolver::solve(Matrix &A) 
 {
     std::vector<std::pair<size_t,size_t>> swaps;
     (*this).gaussForwardElim(A,swaps);

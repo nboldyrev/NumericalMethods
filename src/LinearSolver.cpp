@@ -10,19 +10,7 @@ normType(_normType)
 {
 }
 
-Matrix LinearSolver::readProblem(const std::string& filename,MyType epsi)
-{
-    std::ifstream file(filename);
-    Matrix problem;
-    file>>problem;
-    problem.setPresision(epsi);
-    Matrix rs(1,problem.getRows());
-    for(int i = 0; i < problem.getRows(); ++i){
-        file>>rs(i);
-    }
-    problem.append(rs);
-    return problem;
-}
+
 /* Matrix LinearSolver::SimpleIterattions(Matrix problem, Matrix rs, Matrix xStart)
 {
     Matrix E(problem.getRows());

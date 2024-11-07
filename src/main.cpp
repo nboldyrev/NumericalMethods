@@ -41,19 +41,7 @@ namespace Lab2 {//* NOTE:: файлы
 
 
 int main() {
-    SimpleIterSolver solS;
-    auto problem0=solS.readProblem(Lab2::fileIn1);
-    Matrix startX({1,4});
-    std::cout<<solS.solve(problem0,startX)<<"\n\n";
-    QRSolver solQ;
-    problem0 = solQ.readProblem(Lab1::fileIn4);
-    std::cout<<solQ.solve(problem0);
-    GaussSolver solG;
-    problem0 = solG.readProblem(Lab1::fileIn5);
-    std::cout<<solG.solve(problem0);  
-    Matrix a({{1,2,3}});
-    std::cout<<a<<"\n"<<a.perturb(0.1); 
-
-    std::cout<<std::endl;
+    GaussSolver a;
+    
     return 0;
 }

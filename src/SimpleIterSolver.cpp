@@ -1,6 +1,6 @@
 #include "SimpleIterSolver.h"
 
-SimpleIterSolver::SimpleIterSolver():LinearSolver(),precision(0.01)
+SimpleIterSolver::SimpleIterSolver():SLESolver(),precision(0.01)
 {
 }
 

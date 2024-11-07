@@ -1,13 +1,12 @@
 #include "JacobiSolver.h"
 
-JacobiSolver::JacobiSolver():LinearSolver(),precision(0.01)
+JacobiSolver::JacobiSolver():SLESolver(),precision(0.01)
 {
 }
 
 
 
-Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)
-{
+Matrix JacobiSolver::solve(Matrix &problem, Matrix &xStart)  {
 
     Matrix rs=problem.popCol(problem.getCols()-1);
     Matrix C(problem.getCols(),problem.getRows());

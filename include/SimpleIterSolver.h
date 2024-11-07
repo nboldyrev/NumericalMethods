@@ -1,7 +1,7 @@
 #ifndef SIMPLEITERSOLVER_H
 #define SIMPLEITERSOLVER_H
-#include "LinearSolver.h"
-class SimpleIterSolver: public LinearSolver{
+#include "SLESolver.h"
+class SimpleIterSolver: public SLESolver{
     private:
     MyType precision;
     public:

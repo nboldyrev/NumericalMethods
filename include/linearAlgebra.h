@@ -2,7 +2,7 @@
 #ifndef LINEARALGEBRA_H
 #define LINEARALGEBRA_H
 
-#include "Matrix.h"
+ #include "Matrix.h"
 
 //Решение СЛАУ
 #include "LinearSolver.h"
@@ -14,5 +14,6 @@
 #include "SimpleIterSolver.h"
 #include "SeidelSolver.h"
 #include "RelaxationSolver.h"
-
+#include "SLESolver.h"
+ 
 #endif // LINEARALGEBRA_H

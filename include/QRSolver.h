@@ -1,7 +1,7 @@
+#include "SLESolver.h"
 #ifndef QRSOLVER_H
 #define QRSOLVER_H
-#include "LinearSolver.h"
-class QRSolver :public LinearSolver {
+class QRSolver :public SLESolver {
     private:
         Matrix Q;
         Matrix R;

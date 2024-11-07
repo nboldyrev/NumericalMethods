@@ -1,6 +1,6 @@
-#include "LinearSolver.h"
+#include "SLESolver.h"
 #ifndef RELAXATIONSOLVER_H
-class RelaxtationSolver: public LinearSolver {
+class RelaxtationSolver: public SLESolver {
     private:
     public:
 

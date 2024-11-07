@@ -63,17 +63,17 @@ Matrix QRSolver::solve(Matrix &rhs)
 
 }
 
-QRSolver::QRSolver() : LinearSolver()
+QRSolver::QRSolver() : SLESolver()
 {
 }
 
 QRSolver::QRSolver(const size_t _normType):
- LinearSolver(_normType)
+ SLESolver(_normType)
 {
 
 }
 
-QRSolver::QRSolver(Matrix& A):LinearSolver()
+QRSolver::QRSolver(Matrix& A):SLESolver()
 {
 
      (*this).calcQR(A);

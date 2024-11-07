@@ -10,7 +10,7 @@ class Matrix {
         std::vector<std::vector<MyType>> data;
         size_t rows;
         size_t cols;
-        MyType eps; //TODO учесть в функциях точность
+        MyType eps;
     public:
         Matrix();
         Matrix(const int c,const int r, const MyType e=2.20E-16);
