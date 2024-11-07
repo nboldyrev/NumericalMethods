@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/NumericalMethods.dir/src/NMLW.cpp.o -o NumericalMethods
