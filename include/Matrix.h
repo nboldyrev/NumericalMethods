@@ -59,6 +59,7 @@ class Matrix {
 
         Matrix toUpperTriangleForm();
         Matrix toUpperTriangleForm(std::vector<std::pair<size_t, size_t>>& swaps);
+        Matrix toDiagnaleForm(std::vector<std::pair<size_t, size_t>>& swaps);
         Matrix toLowerTriangleForm();
 
         Matrix inverce();

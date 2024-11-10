@@ -31,6 +31,12 @@ Matrix GaussSolver::gaussBackwardElim(Matrix &augProblem)
     return result;
 }
 
+Matrix GaussSolver::gaussForwardElimMod(Matrix &problem, std::vector<std::pair<size_t, size_t>> &swaps)
+{
+    problem.setPresision(epsilon);
+    problem.toDiagnaleForm(swaps);
+    return problem;
+}
 
 Matrix GaussSolver::solve(Matrix &A) 
 {
@@ -42,11 +48,23 @@ Matrix GaussSolver::solve(Matrix &A)
     for(int i = 0; i < N; ++i) {
        result.swapRows(i,swaps[i].first);
     } 
-    std::cout<<result<<"\n\n";
-   return Matrix();
+   return result;
 }
 
 Matrix GaussSolver::solve(Matrix &&problem)
 {
     return (*this).solve(problem);
+}
+
+Matrix GaussSolver::solveMod(Matrix &A)
+{
+    A.setPresision(epsilon);
+    std::vector<std::pair<size_t,size_t>> swaps;
+    (*this).gaussForwardElimMod(A,swaps);
+    auto result = (*this).gaussBackwardElim(A);
+    const auto N = swaps.size(); 
+    for(int i = 0; i < N; ++i) {
+       result.swapRows(i,swaps[i].first);
+    } 
+    return result;
 }

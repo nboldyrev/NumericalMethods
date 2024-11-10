@@ -8,9 +8,9 @@ class GaussSolver:public SLESolver {
         GaussSolver(const size_t _normType, const MyType _epsilon=type<MyType>()(((MyType)0.1)));
         Matrix gaussForwardElim(Matrix& problem,std::vector<std::pair<size_t,size_t>>&swaps);
         Matrix gaussBackwardElim(Matrix& augProblem);
-        Matrix gaussModifiedElim(Matrix& problem, Matrix& rs,std::vector<std::pair<size_t,size_t>>&swaps);
+        Matrix gaussForwardElimMod(Matrix& problem,std::vector<std::pair<size_t,size_t>>&swaps);
         Matrix solve(Matrix& problem) override;
         Matrix solve(Matrix&& problem) override;
-        Matrix solveModified(Matrix&A);
+        Matrix solveMod(Matrix&A);
 };
 #endif //GAUSSSOLVER_H

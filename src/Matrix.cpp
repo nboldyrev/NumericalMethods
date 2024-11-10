@@ -333,6 +333,32 @@ Matrix Matrix::toUpperTriangleForm( std::vector<std::pair<size_t, size_t>>& swap
     return (*this);   
 }
 
+Matrix Matrix::toDiagnaleForm(std::vector<std::pair<size_t, size_t>> &swaps)
+{
+    int maxCol = 0, maxRow = 0;
+    for(size_t i = 0; i < rows; ++i) {
+        auto [maxCol,maxRow] = (*this).getMaxPosition(i);
+        if(std::abs((*this)(maxCol,maxRow))<=eps){
+            std::cerr<<"Ошибка"<<std::endl;
+        }
+        (*this).swapCols(i,maxCol);
+        (*this).swapRows(i,maxRow);
+        swaps.push_back(std::pair(maxCol,maxRow));
+        for(size_t j = i+1; j < rows; ++j) {
+            auto c = (*this)(i,j)/(*this)(i,i);
+            if(std::abs(c)<=eps)continue;
+            (*this)=(*this).addToRow(j,i,-c);
+        }
+        for(int j = i-1;  j >= 0; --j) {
+            if(j<0)break;
+            auto c = (*this)(i,j)/(*this)(i,i);
+            if(std::abs(c)<=eps)continue;
+            (*this)=(*this).addToRow(j,i,-c);
+        }
+    }
+    return (*this);  
+}
+
 Matrix Matrix::inverce()
 {
     std::vector<std::pair<size_t,size_t>>swaps;
