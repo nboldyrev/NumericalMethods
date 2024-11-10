@@ -12,7 +12,6 @@
 //Итерационные методы
 #include "JacobiSolver.h"
 #include "SimpleIterSolver.h"
-#include "SeidelSolver.h"
 #include "RelaxationSolver.h"
 #include "SLESolver.h"
  

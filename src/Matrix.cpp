@@ -389,6 +389,7 @@ Matrix Matrix::inverce()
     data.erase(data.begin(),data.end()-rows);
     cols = rows; 
     return (*this);
+    
 }
 
 Matrix Matrix::getInverseMatrix()

@@ -42,10 +42,12 @@ namespace Lab2 {//* NOTE:: файлы
 
 
 int main() {
-     std::cout<<QRSolver().fsolve(Lab1::fileIn5)<<"\n\n"; 
+/*      std::cout<<QRSolver().fsolve(Lab1::fileIn5)<<"\n\n"; 
      GaussSolver G;
      auto problem = G.readLSE(Lab1::fileIn4);
      auto res =G.solveMod(problem);
-     std::cout<<res<<"\n";
+     std::cout<<res<<"\n"; */
+    RelaxtationSolver solR(0,0.001,1,0.01);
+    std::cout<<solR.fsolve(Lab2::fileIn1);
     return 0;
 }
