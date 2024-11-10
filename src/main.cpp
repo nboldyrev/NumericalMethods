@@ -1,6 +1,5 @@
-#include "linearAlgebra.h"
 #include <iostream>
-
+#include "linearAlgebra.h"
 
 
 namespace Lab1 {//* NOTE::  файлы 
@@ -42,12 +41,7 @@ namespace Lab2 {//* NOTE:: файлы
 
 
 int main() {
-/*      std::cout<<QRSolver().fsolve(Lab1::fileIn5)<<"\n\n"; 
-     GaussSolver G;
-     auto problem = G.readLSE(Lab1::fileIn4);
-     auto res =G.solveMod(problem);
-     std::cout<<res<<"\n"; */
-    RelaxtationSolver solR(0,0.0001,1.2);
-    std::cout<<solR.fsolve(Lab2::fileIn1);
+    Matrix a(2,2);
+    std::cout<<a<<std::endl;
     return 0;
 }

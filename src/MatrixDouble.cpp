@@ -2,44 +2,33 @@
 #include <iostream>
 #include <algorithm>
 
-Matrix::Matrix():data(),eps(type<MyType>()(((MyType)0.1))),rows(0),cols(0){}
-Matrix::Matrix(const int c,const int r, const MyType e):rows(r),cols(c), eps(e){
-    data.resize(cols,std::vector<MyType>(rows,0));
+Matrix::Matrix():dData(),eps(2.20E-16){}
+Matrix::Matrix(const int c,const int r, const double e):rows(r),cols(c), eps(e){
+    dData.resize(cols,std::vector<double>(rows,0));
 }
 
-Matrix::Matrix(const int s,const MyType pr): rows(s), cols(s), eps(pr){
-    data.resize(cols,std::vector<MyType>(rows,0));
-    for(int i = 0; i < s; ++i) {
-        data[i][i] = 1;
-    }
-}
-Matrix::Matrix(const MyType pr)
+Matrix::Matrix(const double pr)
 :Matrix()
 {
 (*this).setPresision(pr);
 }
-Matrix::Matrix(std::initializer_list<std::vector<MyType>> list, const MyType e) : data(list), eps(e)
+Matrix::Matrix(std::initializer_list<std::vector<double>> list, const double e) : dData(list), eps(e)
 {
-    cols = data.size();
-    rows = data[0].size();
+    cols = dData.size();
+    rows = dData[0].size();
     for(size_t i = 0; i < cols; ++i){
         for(size_t j = 0; j < rows; ++j) {
-            if(std::abs(data[i][j])< eps)data[i][j]=0;
+            if(std::abs(dData[i][j])< eps)dData[i][j]=0;
         }
     }
 }
 
 Matrix::Matrix(const Matrix& rhs)
-:data(rhs.data), eps(rhs.eps),cols(rhs.cols), rows(rhs.rows)
+:dData(rhs.dData), eps(rhs.eps),cols(rhs.cols), rows(rhs.rows)
 {
 
 }
-size_t Matrix::getRows(){
-    return this->rows;
-}
-size_t Matrix::getCols(){
-    return this->cols;
-}
+
 const size_t Matrix::getRows() const {
     return this->rows;
 }
@@ -47,20 +36,20 @@ const size_t Matrix::getCols()const {
     return this->cols;
 }
 
-const MyType Matrix::getPresision() const
+const double Matrix::getPresision() const
 {
     return eps;
 }
 
-void Matrix::setPresision(const MyType e)
+void Matrix::setPresision(const double e)
 {
     eps = e;
 }
 
-const MyType Matrix::norm(const size_t normType)
+const double Matrix::norm(const size_t normType)
 {
-    MyType maxNorm = 0;
-    MyType sum = 0;
+    double maxNorm = 0;
+    double sum = 0;
     if(normType == 0){//* Кубическая
        if(cols == 1){
            for(size_t i = 0; i < rows; ++i) {
@@ -110,30 +99,30 @@ const MyType Matrix::norm(const size_t normType)
     return maxNorm;
 }
 
-MyType& Matrix::operator()(const int col_ind, const int row_ind) {
-    return data[col_ind][row_ind];
+double& Matrix::operator()(const int col_ind, const int row_ind) {
+    return dData[col_ind][row_ind];
 }
-const MyType& Matrix::operator()(const int col_ind, const int row_ind) const {
-    return data[col_ind][row_ind];
+const double& Matrix::operator()(const int col_ind, const int row_ind) const {
+    return dData[col_ind][row_ind];
 }
 
-MyType &Matrix::operator()(const int row_ind)
+double &Matrix::operator()(const int row_ind)
 {
-   return data[0][row_ind];
+   return dData[0][row_ind];
 }
 
 Matrix Matrix::getCol(const int index) {
-    const auto tmp = data[index];
+    const auto tmp = dData[index];
     return Matrix({tmp},eps);
 }
 const Matrix Matrix::getCol(const int index) const {
-    const auto tmp = data[index];
+    const auto tmp = dData[index];
     return Matrix({tmp},eps);
 }
 Matrix Matrix::getRow(const int index) {
-    std::vector<MyType> row;
+    std::vector<double> row;
     for(int i = 0; i < this->cols; ++i) {
-        row.push_back(data[i][index]);
+        row.push_back(dData[i][index]);
     }
     return Matrix({row},eps);
 }
@@ -146,7 +135,7 @@ Matrix Matrix::setRow(const int index,const Matrix& newRow) {
 
 Matrix Matrix::setCol(const int index)
 {
-    return Matrix();
+    return Matrix();       
 }
 
 std::pair<size_t, size_t> Matrix::getMaxPosition(const size_t var, const int par)
@@ -183,7 +172,7 @@ std::pair<size_t, size_t> Matrix::getMaxPosition(const size_t var, const int par
   
 
 
-Matrix Matrix::operator*(const MyType scalar) {
+Matrix Matrix::operator*(const double scalar) {
     Matrix result(*(this));
     for(int i = 0; i < cols; ++i) {
         for(int j = 0; j < rows; ++j) {
@@ -194,7 +183,7 @@ Matrix Matrix::operator*(const MyType scalar) {
     return result;
 }
 
-const Matrix Matrix::operator*(const MyType scalar) const {
+const Matrix Matrix::operator*(const double scalar) const {
     Matrix result(*(this));
     for(int i = 0; i < cols; ++i) {
         for(int j = 0; j < rows; ++j) {
@@ -241,7 +230,7 @@ Matrix Matrix::operator-()
     return result*(-1);
 }
 
-Matrix Matrix::addToRow(const size_t rowLhs,const size_t rowRhs, const MyType scalar) {
+Matrix Matrix::addToRow(const size_t rowLhs,const size_t rowRhs, const double scalar) {
     ;
     for(size_t i = 0; i < cols; ++i) {
             (*this)(i,rowLhs)+=scalar*(*this)(i,rowRhs);
@@ -250,7 +239,7 @@ Matrix Matrix::addToRow(const size_t rowLhs,const size_t rowRhs, const MyType sc
     return (*this);
 }
 
-Matrix Matrix::addToRow(const size_t rowLhs, const Matrix rowRhs, const MyType scalar)
+Matrix Matrix::addToRow(const size_t rowLhs, const Matrix rowRhs, const double scalar)
 {
     for(size_t i = 0; i < cols; ++i) {
             (*this)(i,rowLhs)+=scalar*rowRhs(0,i);
@@ -263,7 +252,7 @@ Matrix Matrix::transpose() {
     Matrix result(rows,cols,(*this).getPresision());
     for(int i = 0; i < cols; ++i){
         for(int j = 0; j < rows; ++j) {
-            (result)(j,i) = data[i][j];
+            (result)(j,i) = dData[i][j];
         }
     }
     return (*this)=result;
@@ -272,7 +261,7 @@ Matrix Matrix::transpose() {
 Matrix Matrix::popCol(const size_t col)
 {
     auto Col = (*this).getCol(col);
-    data.erase(data.begin()+col);
+    dData.erase(dData.begin()+col);
     cols-=1;
     return Col;
 }
@@ -376,7 +365,7 @@ Matrix Matrix::inverce()
             (*this)=(*this).addToRow(j,i,-c);
             if(j == 0) break;
         }
-        MyType tau =1./ (*this)(i,i);
+        double tau =1./ (*this)(i,i);
         (*this).setRow(i,((*this).getRow(i))*tau);
     }
     (*this).setRow(0,((*this).getRow(0))*(1./(*this)(0,0)));
@@ -386,7 +375,7 @@ Matrix Matrix::inverce()
     for(int i = 0; i < N; ++i) {
        (*this).swapRows(N-i-1,swaps[i].first);
     }
-    data.erase(data.begin(),data.end()-rows);
+    dData.erase(dData.begin(),dData.end()-rows);
     cols = rows; 
     return (*this);
     
@@ -399,26 +388,26 @@ Matrix Matrix::getInverseMatrix()
 }
 
 Matrix Matrix::append(const Matrix& col) {
-    data.insert(data.end(),col.data.begin(),col.data.end());
+    dData.insert(dData.end(),col.dData.begin(),col.dData.end());
     (*this).cols+=col.cols;
     return (*this);
 }
 
 Matrix Matrix::swapCols(const size_t col1, const size_t col2)
 {
-    std::swap(data[col1],data[col2]);
+    std::swap(dData[col1],dData[col2]);
     return (*this);
 }
 
 Matrix Matrix::swapRows(const size_t row1, const size_t row2)
 {
     for(int i = 0; i < cols; ++i) {
-        std::swap(data[i][row1],data[i][row2]);
+        std::swap(dData[i][row1],dData[i][row2]);
     }
     return (*this);
 }
 
-Matrix Matrix::perturb(const MyType perturbationScale)
+Matrix Matrix::perturb(const double perturbationScale)
 {
     for(size_t i = 0; i < cols; ++i) {
         for(size_t j = 0; j < rows; ++j) {
@@ -443,7 +432,7 @@ std::istream &operator>>(std::istream &os, Matrix &matrix)
 {
    int N;
    os >> N;
-   matrix.data.resize(N,std::vector<MyType>(N,0));
+   matrix.dData.resize(N,std::vector<double>(N,0));
    matrix.rows=N;
    matrix.cols = N;
    for(int i = 0; i < N; ++i) {

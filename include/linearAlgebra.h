@@ -4,7 +4,7 @@
 
  #include "Matrix.h"
 
-//Решение СЛАУ
+/* //Решение СЛАУ
 #include "LinearSolver.h"
 //Прямые методы
 #include "GaussSolver.h"
@@ -13,6 +13,6 @@
 #include "JacobiSolver.h"
 #include "SimpleIterSolver.h"
 #include "RelaxationSolver.h"
-#include "SLESolver.h"
+#include "SLESolver.h" */
  
 #endif // LINEARALGEBRA_H
