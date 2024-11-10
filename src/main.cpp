@@ -47,7 +47,7 @@ int main() {
      auto problem = G.readLSE(Lab1::fileIn4);
      auto res =G.solveMod(problem);
      std::cout<<res<<"\n"; */
-    RelaxtationSolver solR(0,0.001,1,0.01);
+    RelaxtationSolver solR(0,0.0001,1.2);
     std::cout<<solR.fsolve(Lab2::fileIn1);
     return 0;
 }

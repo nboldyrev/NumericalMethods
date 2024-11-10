@@ -18,7 +18,7 @@ void RelaxtationSolver::iteration(Matrix &x1, Matrix& x0,const Matrix& problem, 
 {
     for(int i = 0; i < x1.getRows(); ++i) {
     MyType sum1=0;
-    for(int j = 1; j < i; ++j) {
+    for(int j = 0; j < i; ++j) {
         sum1+=((problem(j,i)/problem(i,i))*x1(j));
     }
     sum1*=-w;
@@ -61,7 +61,7 @@ Matrix RelaxtationSolver::solve(Matrix &problem, Matrix &xStart)
     this->iteration(result,xStart,problem,rs);
     const auto Norm = this->getC(problem).norm(normType);
     size_t itCount=0;
-    while((result-xStart).norm(normType)>1E-10/* ((1-Norm)* precision)/Norm */) {
+    while((result-xStart).norm(normType)> ((1-Norm)* precision)/Norm ) {
         xStart = result;
         this->iteration(result,xStart,problem,rs);
         itCount+=1;
